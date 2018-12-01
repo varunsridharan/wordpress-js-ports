@@ -15,6 +15,8 @@ You Can install via NPM using below cmd
 1. [`add_query_arg`](#add_query_arg)
 2. [`remove_query_arg`](#remove_query_arg)
 
+---
+
 ### `add_query_arg`
 Retrieves a modified URL query string.
 You can rebuild the URL and append query variables to the URL query by using this function.
@@ -36,6 +38,8 @@ add_query_arg( {
 ```
 
 Omitting the URL from either use results in the current URL being used (the value of `window.location.href`).
+
+---
 
 ### `remove_query_arg`
 Removes an item or items from a query string.
