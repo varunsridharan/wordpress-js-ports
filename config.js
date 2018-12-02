@@ -1,10 +1,11 @@
 let $_json          = {};
-$_json.project_name = 'wordpress-js-ports';
+$_json.project_name = 'wordpress-js-helpers';
 $_json.scss         = false;
 $_json.wppot        = false;
 $_json.js           = {
 	'./index.js': {
 		webpack: true,
+		watch: [ './functions/*.js' ],
 		dist: './',
 		concat: 'wordpress-js-ports.js',
 	}
