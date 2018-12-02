@@ -85,5 +85,6 @@ export default function add_query_arg( key = null, value = null, url = null ) {
 	}
 
 	$query = http_build_query( $query, null, '&' );
-	return base_url + '?' + $query + $fragment;
+	$query = ( $query !== '' ) ? '?' + $query : $query;
+	return base_url + $query + $fragment;
 }
