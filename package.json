@@ -1,6 +1,6 @@
 {
 	"name": "wordpress-js-ports",
-	"version": "1.0.4",
+	"version": "1.0.6",
 	"description": "This package ports from important functions from Core PHP WordPress into VanillaJS",
 	"main": "index.js",
 	"scripts": {
@@ -27,5 +27,19 @@
 	"dependencies": {
 		"locutus": "^2.0.10"
 	},
-	"keywords": []
+	"keywords": [
+		"wordpress",
+		"add-query-arg",
+		"remove-query-arg",
+		"add-query-string",
+		"remove-query-string",
+		"wordpress-to-js-ports",
+		"wordpress-js-functions",
+		"wordpress-js-utilites",
+		"wordpress-js-helper",
+		"wordpress-helpers",
+		"wordpress-url-handlers",
+		"javascript",
+		"javascript-utilites"
+	]
 }
