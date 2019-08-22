@@ -1,0 +1,27 @@
+name: Node.js Package
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  publish-npm:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+          registry-url: https://registry.npmjs.org
+      - run: git config --global user.email "varunsridharan23+npmbot@gmail.com" && git config --global user.name "NPM BOT"
+      - run: npm install
+      - run: gulp compile
+      - run: git add -A && git commit -m "Source Code Rebuilt"
+      - run: npm version patch
+      - run: git push "https://x-access-token:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY" HEAD:master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - run: npm publish ./
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
