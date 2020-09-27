@@ -1,6 +1,6 @@
 {
 	"name": "wordpress-js-ports",
-	"version": "1.0.9",
+	"version": "1.0.10",
 	"description": "This package ports from important functions from Core PHP WordPress into VanillaJS",
 	"main": "src/index.js",
 	"scripts": {
