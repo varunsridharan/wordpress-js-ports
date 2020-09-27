@@ -1,1 +1,0 @@
-let $easygulptasker = require( 'easy-gulp-tasker' );

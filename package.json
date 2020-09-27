@@ -2,7 +2,7 @@
 	"name": "wordpress-js-ports",
 	"version": "1.0.9",
 	"description": "This package ports from important functions from Core PHP WordPress into VanillaJS",
-	"main": "index.js",
+	"main": "src/index.js",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"watch": "gulp watch"
@@ -22,7 +22,7 @@
 	},
 	"license": "GPL-3.0",
 	"devDependencies": {
-		"easy-gulp-tasker": "^1.0.5"
+		"sofy": "*"
 	},
 	"dependencies": {
 		"locutus": "^2.0.10"
