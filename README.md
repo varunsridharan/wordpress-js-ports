@@ -131,3 +131,8 @@ If you, or your company, use any of my projects or like what I’m doing, kindly
 [telegram]: https://sva.onl/telegram/
 [email]: https://sva.onl/email
 [website]: https://sva.onl/website/
+
+
+[downloads-image]: http://img.shields.io/npm/dm/wordpress-js-ports.svg
+[npm-url]: https://www.npmjs.com/package/wordpress-js-ports
+[npm-image]: http://img.shields.io/npm/v/wordpress-js-ports.svg
