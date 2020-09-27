@@ -10,7 +10,7 @@ You Can install via NPM using below cmd
 
 #### Manual
 ```html
-<script src="wordpress-js-ports.js" type="text/javascript"/>
+<script src="dist/wordpress-js-ports.min.js" type="text/javascript"/>
 ```
 
 ## Ported Functions
