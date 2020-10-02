@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## 1.0.11 - 27/09/2020
+* Changed License To MIT
+* Published in Github Package Registry
+
 ## 1.0.10 - 27/09/2020
 * Migrated To Rollup
 * Code Clean UP Done.
