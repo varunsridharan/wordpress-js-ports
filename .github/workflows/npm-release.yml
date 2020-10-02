@@ -1,35 +1,34 @@
-name: On Release
+name: On NPM Release
 
 env:
   DIST_LOCATION: "./dist/"
   VS_WORKFLOW_TYPE: "npm-release"
 
 on:
-  release:
-    types:
-      - published
+  push:
+    branches:
+      - master
+      - main
+    paths:
+      - 'package.json'
+    tags-ignore:
+      - '*'
 
 jobs:
   publish-npm:
     name: "🚀  NPM Publisher"
     runs-on: ubuntu-latest
     steps:
-      - name: "📐  Setting Node"
-        uses: actions/setup-node@v1
-        with:
-          node-version: 12
-          registry-url: https://registry.npmjs.org
-
       - name: "📥  Fetching Repository Contents"
-        uses: actions/checkout@master
+        uses: actions/checkout@main
 
       - name: "💾  Github Repository Metadata"
-        uses: varunsridharan/action-repository-meta@master
+        uses: varunsridharan/action-repository-meta@main
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: "💫  VS Utility"
-        uses: varunsridharan/action-vs-utility@master
+        uses: varunsridharan/action-vs-utility@main
 
       - name: "⚡  Repository - Before Hook"
         run: |
@@ -42,10 +41,33 @@ jobs:
           fi
           echo " "
 
+      - name: "📐  Installing & Setting UP [NPM]"
+        uses: actions/setup-node@v1
+        with:
+          registry-url: 'https://registry.npmjs.org'
+
       - name: "🚀  Publishing Release"
-        run: npm publish ./
+        id: npmpublisher
+        uses: g-actions/npm-publish@main
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
+          registry: 'https://registry.npmjs.org'
+
+      - if: steps.npmpublisher.type != 'none'
+        name: "🚀🚀  Creating Github Tag & Release"
+        uses: webclipper/create-release@master
         env:
-          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+          GITHUB_TOKEN: ${{ secrets.GH_PUBLIC_REPO }}
+        with:
+          tag_name: ${{steps.npmpublisher.outputs.version}}
+          release_name: ${{steps.npmpublisher.outputs.version}}
+          body: |
+            ---
+            ### ___Please Refer [CHANGELOG.md](CHANGELOG.md) detailed information on this release___
+            ---
+          draft: false
+          allow_duplicate: true
+          prerelease: false
 
       - name: "⚡  Repository - After Hook"
         run: |
